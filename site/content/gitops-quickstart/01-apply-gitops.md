@@ -303,7 +303,8 @@ a starting point for clusters you can iterate over.
 
 [eks-gitops-example]: https://github.com/weaveworks/eks-gitops-example
 
-XXX: `eks-gitops-example` to be renamed to `eks-quickstart-app-dev`.
+XXX: `eks-gitops-example` to be renamed to `eks-quickstart-app-dev`
+(https://github.com/weaveworks/aws-workstream/issues/77).
 
 XXX: link to  site/content/usage/experimental/01-gitops.md
 for a description of all the flags and options
