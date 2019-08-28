@@ -101,7 +101,7 @@ EKSCTL_EXPERIMENTAL=true eksctl \
         --quickstart-profile app-dev \
         --git-url=git@github.com/example/my-eks-config.git \
         --output-path ~/dev/flux-get-started/infra-config/ \
-        --git-url git@github.com:YOURUSER/eks-gitops-example.git \
+        --git-url git@github.com:YOURUSER/eks-quickstart-app-dev.git \
         --cluster your-cluster-name
 ```
 
@@ -131,7 +131,7 @@ like this one:
 
 ```
 [ℹ]  Flux will only operate properly once it has write-access to the Git repository
-[ℹ]  please configure git@github.com:YOURUSER/eks-gitops-example.git so that the following Flux SSH public key has write access to it
+[ℹ]  please configure git@github.com:YOURUSER/eks-quickstart-app-dev.git so that the following Flux SSH public key has write access to it
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8msUDG9tEEWHKKJw1o8BpwfMkCvCepeUSMa9iTVK6Bmxeu2pA/ivBS8Qgx/Lg8Jnu4Gk2RbXYMt3KL3/lcIezLwqipGmVvLgBLvUccbBpeUpWt+SlW2LMwcMOnhF3n86VOYjaRPggoPtWfLhFIfnkvKOFLHPRYS3nqyYspFeCGUmOzQim+JAWokf4oGOOX4SNzRKjusboh93oy8fvWk8SrtSwLBWXOKu+kKXC0ecZJK7G0jW91qb40QvB+VeSAbfk8LJZcXGWWvWa3W0/woKzGNWBPZz+pGuflUjVwQG5GoOq5VVWu71gmXoXBS3bUNqlu6nDobd2LlqiXNViaszX
 ```
 
@@ -275,14 +275,14 @@ to watch a config repository and deploy changes to the cluster. This
 config repository is where the workloads are defined. Now we will add
 the config of the infrastructure tooling as well.
 
-In this example we will use `weaveworks/eks-gitops-example` as a
+In this example we will use `weaveworks/eks-quickstart-app-dev` as a
 base config for the infrastructure tooling. If you have your own, feel
 free to use that instead. Then run:
 
 ```console
 EKSCTL_EXPERIMENTAL=true eksctl generate profile \
         --name wonderful-wardrobe-1565767990 \
-        --git-url git@github.com:weaveworks/eks-gitops-example.git \
+        --git-url git@github.com:weaveworks/eks-quickstart-app-dev.git \
         --profile-path ~/dev/flux-get-started/cluster-config
 ```
 
@@ -298,13 +298,10 @@ least wants:
 
 The base config can be something you and your organisation
 tailored to your needs, but can be something like our [EKS
-GitOps example][eks-gitops-example] as well. It is meant to be
+GitOps example][eks-quickstart-app-dev] as well. It is meant to be
 a starting point for clusters you can iterate over.
 
-[eks-gitops-example]: https://github.com/weaveworks/eks-gitops-example
-
-XXX: `eks-gitops-example` to be renamed to `eks-quickstart-app-dev`
-(https://github.com/weaveworks/aws-workstream/issues/77).
+[eks-quickstart-app-dev]: https://github.com/weaveworks/eks-quickstart-app-dev
 
 XXX: link to  site/content/usage/experimental/01-gitops.md
 for a description of all the flags and options
