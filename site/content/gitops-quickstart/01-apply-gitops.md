@@ -91,12 +91,28 @@ in the configuration they will be reflected on your cluster.
 > Experimental features are not stable and their command name and flags
 > may change.
 
+The most important ingredient using `gitops apply` is your config
+repository (which includes your workload manifests, etc). You can start with
+an empty repository and push that to Git, or use the one you intend to
+deploy to the cluster.
+
+What will happen during the following command is:
+
+- `eksctl` will add the definition of your EKS cluster itself to Git,
+  so you can operate it through pull requests.
+- It will also add the `app-dev` GitOps Quick Start profile to it,
+  which comes with a lot of very useful services and config. It is how
+  we feel EKS `app-dev` clusters are best run.
+
+Run this command from your local check-out of your config repository.
+Or tweak `output-path` accordingly.
+
 ```console
 EKSCTL_EXPERIMENTAL=true eksctl \
         gitops apply \
         --quickstart-profile app-dev \
-        --git-url git@github.com/example/my-eks-config.git \
-        --output-path ~/dev/flux-get-started/infra-config/ \
+        --git-url git@github.com:example/my-eks-config \
+        --git-email your@email.com \
         --cluster your-cluster-name
 ```
 
@@ -104,14 +120,12 @@ Let us go through the specified arguments one by one:
 
 - `--quickstart-profile`: this is the name of one of the profiles we
   put together, so you can easily pick and choose and will not have
-  to start from scratch every time. Use `app-dev` for now.
+  to start from scratch every time. We use `app-dev` here.
 - `--git-url`: this points to a Git URL where the configuration for
   your cluster will be stored. This will contain config for the
   workloads and infrastructure later on.
-- `--output-path`: specifies the path to your local checkout of
-  above Git repo, add an empty directory in there, where the
-  infrastructure config can be stored. Above we added `infra-config`
-  as an empty directory.
+- `--git-email`: the email used to commit changes to your config
+  repository.
 - `cluster`: the name of your cluster. Use `eksctl get cluster`
   to see all clusters in your default region.
 
@@ -143,18 +157,8 @@ Quick Start config files into your repo. It will use templating to add your
 cluster name and region to the configuration so that key cluster components
 that need those values can work (e.g. `alb-ingress`).
 
-All that is left now to get our cluster components managed by Flux
-is to commit them to our config repository:
-
-```console
-cd ~/dev/flux-get-started/infra-config
-git add .
-git commit -m "add infra config"
-git push
-```
-
-Flux will pick this up in its next sync and make the changes to your
-cluster.
+If you run `git pull` next, you will see that Flux has commited them to your
+config repository already.
 
 In our case we are going to see these new arrivals in the cluster:
 
