@@ -295,9 +295,6 @@ a starting point for clusters you can iterate over.
 
 [eks-quickstart-app-dev]: https://github.com/weaveworks/eks-quickstart-app-dev
 
-XXX: link to  site/content/usage/experimental/01-gitops.md
-for a description of all the flags and options
-
 So after all this preface, what happens when we run the command?
 `eksctl` will check out the base-config (here we use a copy of the
 GitOps example config) in an empty sub-directory (`cluster-config`)
