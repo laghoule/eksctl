@@ -68,17 +68,13 @@ Once it is finished, you should be able to check the cluster contents and
 see some system workloads:
 
 ```console
-kubectl get pods --all-namespaces
+kubectl get nodes
 ```
 
 ```
-NAMESPACE     NAME                      READY   STATUS    RESTARTS   AGE
-kube-system   aws-node-cl5t5            1/1     Running   0          1m
-kube-system   aws-node-k96bc            1/1     Running   0          1m
-kube-system   coredns-d5c56458d-wc68z   1/1     Running   0          9m
-kube-system   coredns-d5c56458d-zz8d6   1/1     Running   0          9m
-kube-system   kube-proxy-d577n          1/1     Running   0          3m
-kube-system   kube-proxy-tbmdd          1/1     Running   0          3m
+NAME                                              STATUS   ROLES    AGE   VERSION
+ip-192-168-15-6.eu-central-1.compute.internal     Ready    <none>   39s   v1.13.8-eks-cd3eb0
+ip-192-168-64-189.eu-central-1.compute.internal   Ready    <none>   38s   v1.13.8-eks-cd3eb0
 ```
 
 ## Applying GitOps
@@ -99,9 +95,8 @@ in the configuration they will be reflected on your cluster.
 EKSCTL_EXPERIMENTAL=true eksctl \
         gitops apply \
         --quickstart-profile app-dev \
-        --git-url=git@github.com/example/my-eks-config.git \
+        --git-url git@github.com/example/my-eks-config.git \
         --output-path ~/dev/flux-get-started/infra-config/ \
-        --git-url git@github.com:YOURUSER/eks-quickstart-app-dev.git \
         --cluster your-cluster-name
 ```
 
