@@ -48,8 +48,8 @@ Next you will have to have the following tools installed:
 ### Getting ready for GitOps
 
 The main point of GitOps is to keep everything (config, alerts, dashboards,
-apps, literally everything) in git and use it as a single source of truth.
-To keep your cluster configuration in git, please go ahead and create an
+apps, literally everything) in Git and use it as a single source of truth.
+To keep your cluster configuration in Git, please go ahead and create an
 _empty_ repository. On Github for example, follow [these steps][github-repo].
 
 [github-repo]: https://help.github.com/articles/create-a-repo
@@ -116,7 +116,7 @@ Let us go through the specified arguments one by one:
   your cluster will be stored. This will contain config for the
   workloads and infrastructure later on.
 - `--output-path`: specifies the path to your local checkout of
-  above git repo, add an empty directory in there, where the
+  above Git repo, add an empty directory in there, where the
   infrastructure config can be stored. Above we added `infra-config`
   as an empty directory.
 - `cluster`: the name of your cluster. Use `eksctl get cluster`
@@ -140,7 +140,7 @@ e.g. Github. There you can easily do this in the
 `Settings > Deploy keys > Add deploy key`. Just make sure you check
 `Allow write access` as well.
 
-The next time Flux syncs from git, it will start updating the cluster
+The next time Flux syncs from Git, it will start updating the cluster
 and actively deploying.
 
 XXX: What is installed on the cluster as part of `app-dev`?
@@ -174,7 +174,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-f7b5dbf7d-kwz7n   1/1     Runni
 kubernetes-dashboard   kubernetes-dashboard-7447f48f55-2pl66       1/1     Running   0          4m
 ```
 
-All of the cluster configuration can be easily edited in git now.
+All of the cluster configuration can be easily edited in Git now.
 Welcome to a fully GitOpsed world!
 
 ## Your GitOps cluster
@@ -198,9 +198,9 @@ Welcome to a fully GitOpsed world!
 
 So for more complex use cases, you will want to run these steps
 separately and on your own and adjust flags and options as necessary. The
-first command installs Flux and links it to a git repo that you provide.
+first command installs Flux and links it to a Git repo that you provide.
 The second generates the config files from the GitOps Quick Start profile
-locally, so that you can edit them before pushing to your git repo.
+locally, so that you can edit them before pushing to your Git repo.
 
 ### Configuring Flux
 
@@ -246,7 +246,7 @@ e.g. Github. There you can easily do this in the
 `Settings > Deploy keys > Add deploy key`. Just make sure you check
 `Allow write access` as well.
 
-The next time Flux syncs from git, it will start updating the cluster
+The next time Flux syncs from Git, it will start updating the cluster
 and actively deploying. If you use the [`flux-get-started`
 repo](https://github.com/fluxcd/flux-get-started) from above, here's
 what you will see in your cluster:
@@ -335,7 +335,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-f7b5dbf7d-kwz7n   1/1     Runni
 kubernetes-dashboard   kubernetes-dashboard-7447f48f55-2pl66       1/1     Running   0          4m
 ```
 
-All of the cluster configuration can be easily edited in git now.
+All of the cluster configuration can be easily edited in Git now.
 Welcome to a fully GitOpsed world!
 
 - xxx: creating your own QuickStart style repo and give
