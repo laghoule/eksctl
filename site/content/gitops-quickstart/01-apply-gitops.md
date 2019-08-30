@@ -100,8 +100,6 @@ EKSCTL_EXPERIMENTAL=true eksctl \
         --cluster your-cluster-name
 ```
 
-XXX: How to see which quickstart profiles are available?
-
 Let us go through the specified arguments one by one:
 
 - `--quickstart-profile`: this is the name of one of the profiles we
@@ -118,7 +116,9 @@ Let us go through the specified arguments one by one:
   to see all clusters in your default region.
 
 There are more arguments and options, please refer to XXX: link to
-reference doc for `gitops apply`.
+reference doc for `gitops apply`: <https://github.com/weaveworks/eksctl/pull/1188>
+link to doc detailing the flags and directory structure
+(site/content/usage/experimental/01-gitops.md).
 
 The command will take a while to run and it's a good idea to scan
 the output. You will note a similar bit of information in the log
@@ -137,8 +137,6 @@ e.g. Github. There you can easily do this in the
 
 The next time Flux syncs from Git, it will start updating the cluster
 and actively deploying.
-
-XXX: What is installed on the cluster as part of `app-dev`?
 
 This will set up [Flux](https://fluxcd.io) on your cluster and load GitOps
 Quick Start config files into your repo. It will use templating to add your
@@ -178,11 +176,6 @@ Welcome to a fully GitOpsed world!
 - xxx: How users should check what is running at the end of the process
   (e.g. get pods, port forward to kube dashboard, grafana, how they get
   to the demo app that has been deployed)
-
-- xxx: once https://github.com/weaveworks/eksctl/pull/1188 is landed,
-  link to doc detailing the flags and directory structure
-  (site/content/usage/experimental/01-gitops.md)
-
 
 ## Advanced setups
 
@@ -333,12 +326,7 @@ kubernetes-dashboard   kubernetes-dashboard-7447f48f55-2pl66       1/1     Runni
 All of the cluster configuration can be easily edited in Git now.
 Welcome to a fully GitOpsed world!
 
-- xxx: creating your own QuickStart style repo and give
-  that as an argument to eksctl gitops apply or eksctl generate profile
-
 ## Conclusion
-
-- xxx: Next steps
 
 We look forward to hearing your thoughts and feedback. Please [get
 in touch](/community/get-in-touch/) and let us know how things
