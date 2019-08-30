@@ -176,7 +176,6 @@ Welcome to a fully GitOpsed world!
 
 ## Your GitOps cluster
 
-- xxx: Describe what happens there
 - xxx: How users should check what is running at the end of the process
   (e.g. get pods, port forward to kube dashboard, grafana, how they get
   to the demo app that has been deployed)
